@@ -8,10 +8,10 @@ min_distance = 10  # in m
 interference_distance = 350  # in m
 num_channels = 5
 
-# Generate random hotspot locations
+# Generating random hotspot locations
 hotspot_locations = np.random.rand(num_hotspots, 2) * area_size
 
-# Ensure minimum distance between hotspots
+# Ensuring minimum distance between hotspots
 for i in range(1, num_hotspots):
     for j in range(0, i):
         distance = np.linalg.norm(hotspot_locations[i] - hotspot_locations[j])
@@ -20,7 +20,7 @@ for i in range(1, num_hotspots):
             direction /= np.linalg.norm(direction)
             hotspot_locations[i] += (min_distance - distance) * direction
 
-# Randomly assign channels to hotspots
+# Randomly Assigning Channels To Hotspots
 hotspot_channels = np.random.randint(0, num_channels, num_hotspots)
 
 # Function to check interference between hotspots
